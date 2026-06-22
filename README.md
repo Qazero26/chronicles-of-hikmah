@@ -1,46 +1,48 @@
 # Chronicles of Hikmah
 
-Game RPG pendidikan berasaskan browser menggunakan HTML, CSS dan JavaScript.
+Game RPG pendidikan berasaskan browser — HTML, CSS, JavaScript.
 
-## Kandungan
-- Top-down 2D adventure map (Canvas)
-- Quest, NPC, dialog dan inventori
-- Battle turn-based dengan serangan khas berasaskan soalan
-- Sistem EXP, level, emas dan ramuan
-- Save/Load menggunakan localStorage
-- 50 soalan berasaskan Tafsir Ar-Rahman, An-Najm, Bahasa Arab, Nahu, Sirah, Hadis, Matematik dan Sains
+## Ciri-ciri
+- 🗺️ Top-down 2D adventure map (Canvas)
+- 📖 50 soalan: Tafsir Ar-Rahman, An-Najm, Az-Zariyat, Bahasa Arab, Nahu, Sirah, Hadis, Matematik, Sains
+- ⚔️ Battle turn-based dengan Kemahiran Hikmah (jawab soalan untuk serangan khas)
+- 🏆 Sistem EXP, Level, Emas, Streak bonus
+- 💾 Save/Load menggunakan localStorage
+- 🧙 NPC dengan dialog, quest dan ganjaran
+- 🔒 7 wilayah dengan sistem kunci
 
-## Struktur Fail
+## Struktur
 ```
 chronicles-of-hikmah/
-├── index.html        ← Antaramuka utama
-├── style.css         ← Gaya visual game
-├── script.js         ← Logik permainan
+├── index.html
+├── style.css
+├── script.js
 └── data/
-    └── game-data.js  ← Soalan, quest, boss, kawasan, peta
+    └── game-data.js
 ```
 
-## Cara Jalankan
-Buka `index.html` terus dalam browser.
+## Cara main
+Buka `index.html` dalam browser.
 
 ## GitHub Pages
-Settings → Pages → Source: Deploy from branch → main → / (root) → Save
+Settings → Pages → Source: main → / (root) → Save
 
-URL game akan jadi: `https://qazero26.github.io/chronicles-of-hikmah/`
+URL: `https://qazero26.github.io/chronicles-of-hikmah/`
 
 ## Kawalan
-- **WASD / Arrow Keys** — bergerak
-- **E** — interaksi dengan NPC / portal / boss
-- **Butang Guna Ramuan** — pulihkan HP
+| Kekunci | Fungsi |
+|---------|--------|
+| WASD / Arrow Keys | Bergerak |
+| E | Interaksi NPC / Boss / Portal |
+| Butang Guna Ramuan | Pulihkan HP |
 
 ## Wilayah
-1. Kampung Permulaan
-2. Perpustakaan Hikmah
-3. Hutan Pengetahuan
-4. Gurun Bahasa Arab
-5. Kota Nahu
-6. Menara Tafsir
-7. Istana Kebijaksanaan
+1. 🏡 Kampung Permulaan — Tafsir
+2. 📚 Perpustakaan Hikmah — Bahasa Arab
+3. 🌲 Hutan Pengetahuan — Sains
+4. 🏜️ Gurun Bahasa Arab — Bahasa Arab
+5. 🏰 Kota Nahu — Nahu
+6. 🗼 Menara Tafsir — Tafsir
+7. 👑 Istana Kebijaksanaan — Sirah
 
-## Dibina oleh
-Chronicles of Hikmah © 2026
+© 2026 Chronicles of Hikmah

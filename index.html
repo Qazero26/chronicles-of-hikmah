@@ -13,31 +13,30 @@
   <div class="title-screen" id="titleScreen">
     <div class="title-card">
       <div class="logo-wrap" style="margin-bottom:1rem;">
-        <svg class="logo" viewBox="0 0 64 64" aria-label="Chronicles of Hikmah logo" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M15 48L32 12L49 48" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M22 34H42" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
           <path d="M26 48H38" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
         </svg>
         <div>
           <h1>Chronicles of Hikmah</h1>
-          <p>RPG Adventure Education berdasarkan data Tafsir dan Bahasa Arab. Ilmu menjadi kuasa utama untuk mengalahkan kegelapan.</p>
+          <p>RPG Adventure Education. Ilmu adalah kuasa. Kumpulkan semula halaman Kitab Hikmah yang hilang.</p>
         </div>
       </div>
-      <div class="badge-row" style="margin-bottom:1rem;">
-        <span class="badge">Top-down 2D</span>
-        <span class="badge">Quest + NPC</span>
-        <span class="badge">Battle turn-based</span>
-        <span class="badge">50 soalan</span>
-        <span class="badge">Save / Load</span>
+      <div class="badge-row" style="margin-bottom:1.2rem;">
+        <span class="badge">🗺️ 7 Wilayah</span>
+        <span class="badge">🤖 7 Boss</span>
+        <span class="badge">📖 50 Soalan</span>
+        <span class="badge">⚔️ Battle Turn-Based</span>
+        <span class="badge">💾 Save/Load</span>
       </div>
-      <p>Gunakan <span class="kbd">WASD</span> atau <span class="kbd">Arrow Keys</span> untuk bergerak. Tekan <span class="kbd">E</span> untuk bercakap dengan NPC atau berinteraksi dengan portal. Serangan khas memerlukan jawapan yang betul.</p>
-      <div class="title-actions">
-        <button class="action-btn" id="newGameBtn">Mulakan Pengembaraan</button>
-        <button class="menu-btn" id="continueBtn">Teruskan Save</button>
+      <p>Kawalan: <span class="kbd">WASD</span> atau <span class="kbd">Arrow Keys</span> untuk bergerak. <span class="kbd">E</span> untuk interaksi. Takluki setiap wilayah dengan menjawab soalan Tafsir, Bahasa Arab, Nahu, Sirah, Hadis, Matematik dan Sains.</p>
+      <div class="title-actions" style="margin-top:1.5rem;">
+        <button class="action-btn" id="newGameBtn">⚔️ Mulakan Pengembaraan</button>
+        <button class="menu-btn" id="continueBtn">📂 Teruskan Save</button>
       </div>
     </div>
   </div>
-
   <div class="app-shell hidden" id="appShell">
     <aside class="sidebar">
       <div class="brand">
@@ -47,10 +46,7 @@
             <path d="M22 34H42" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
             <path d="M26 48H38" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
           </svg>
-          <div>
-            <h1>Chronicles of Hikmah</h1>
-            <p>Dunia Ilmu memerlukan wira.</p>
-          </div>
+          <div><h1>Chronicles of Hikmah</h1><p>Dunia Ilmu memerlukan wira.</p></div>
         </div>
         <button class="theme-btn" id="themeToggle" aria-label="Tukar tema">☾</button>
       </div>
@@ -61,7 +57,7 @@
           <div class="stat"><div class="stat-label">Level</div><div class="stat-value" id="statLevel">1</div></div>
           <div class="stat"><div class="stat-label">EXP</div><div class="stat-value" id="statExp">0 / 100</div></div>
           <div class="stat"><div class="stat-label">HP</div><div class="stat-value" id="statHp">100</div></div>
-          <div class="stat"><div class="stat-label">Emas</div><div class="stat-value" id="statGold">50</div></div>
+          <div class="stat"><div class="stat-label">Emas</div><div class="stat-value" id="statGold">🪙 50</div></div>
         </div>
         <div class="progress"><span id="expBar"></span></div>
       </section>
@@ -71,44 +67,97 @@
     </aside>
     <main class="main">
       <header class="topbar">
-        <div><h2 id="locationTitle">Kampung Permulaan</h2><div class="pill-row" id="subjectPills"></div></div>
-        <div class="pill-row"><button class="menu-btn" id="openMapBtn">Peta Dunia</button><button class="save-btn" id="saveBtn">Save Game</button></div>
+        <div><h2 id="locationTitle">🏡 Kampung Permulaan</h2><div class="pill-row" id="subjectPills"></div></div>
+        <div class="pill-row">
+          <button class="menu-btn" id="openMapBtn">🗺️ Peta Dunia</button>
+          <button class="save-btn" id="saveBtn">💾 Save Game</button>
+        </div>
       </header>
       <section class="world-wrap">
         <div class="panel map-card">
-          <div class="map-frame"><canvas id="gameCanvas" width="672" height="672" aria-label="Peta permainan"></canvas></div>
-          <div class="controls">
+          <div class="map-frame">
+            <canvas id="gameCanvas" width="672" height="672" aria-label="Peta permainan"></canvas>
+          </div>
+          <div class="controls" style="margin-top:1rem;">
             <button class="menu-btn" data-move="up">↑ Atas</button>
-            <button class="menu-btn" id="interactBtn">Interaksi</button>
+            <button class="menu-btn" id="interactBtn">💬 Interaksi (E)</button>
             <button class="menu-btn" data-move="right">→ Kanan</button>
             <button class="menu-btn" data-move="left">← Kiri</button>
-            <button class="menu-btn" id="healBtn">Guna Ramuan</button>
+            <button class="menu-btn" id="healBtn">🧪 Guna Ramuan</button>
             <button class="menu-btn" data-move="down">↓ Bawah</button>
           </div>
-          <p class="pixel-hint" style="margin-top:1rem;">Petak hijau: pemain, emas: NPC, merah: boss, biru: portal wilayah.</p>
+          <p class="pixel-hint" style="margin-top:.75rem;">🟢 Pemain &nbsp;🟡 NPC &nbsp;🔴 Boss &nbsp;🔵 Portal &nbsp;🟤 Dinding</p>
         </div>
         <div class="detail-card">
           <section class="panel">
             <div class="section-title">Dialog</div>
             <div class="dialog-box">
-              <div class="dialog-name" id="dialogName">Penjaga Kampung</div>
-              <div id="dialogText">Selamat datang ke Dunia Ilmu. Bergerak ke arah NPC dan tekan E untuk mendapatkan misi pertama.</div>
+              <div class="dialog-name" id="dialogName">Penjaga Dunia</div>
+              <div id="dialogText">Selamat datang ke Dunia Ilmu! Bergeraklah ke arah NPC (🟡) dan tekan E untuk misi pertama.</div>
               <div class="badge-row" id="dialogRewards"></div>
             </div>
           </section>
-          <section class="panel"><div class="section-title">Wilayah</div><div class="world-map-list" id="areaList"></div></section>
+          <section class="panel">
+            <div class="section-title">Kawasan Dunia</div>
+            <div class="world-map-list" id="areaList"></div>
+          </section>
         </div>
       </section>
-      <footer class="footer-bar"><div class="log" id="gameLog">Perjalanan bermula. Kumpulkan ilmu untuk mendapatkan semula halaman Kitab Hikmah.</div></footer>
+      <footer class="footer-bar">
+        <div class="log" id="gameLog">Perjalanan bermula. Kumpulkan ilmu untuk mendapatkan semula halaman Kitab Hikmah!</div>
+      </footer>
     </main>
   </div>
-
-  <div class="modal-backdrop" id="quizModal"><div class="modal"><h3 id="quizTitle">Soalan Ilmu</h3><p id="quizContext">Jawab dengan betul untuk maju.</p><div class="reward" id="quizReward">Ganjaran: +20 EXP</div><div class="answer-grid" id="answerGrid" style="margin-top:1rem;"></div><div class="pill-row" style="margin-top:1rem;justify-content:flex-end;"><button class="menu-btn" id="closeQuizBtn">Tutup</button></div></div></div>
-
-  <div class="modal-backdrop" id="battleModal"><div class="modal"><h3 id="battleTitle">Pertempuran Ilmu</h3><p id="battleSubtitle">Gunakan strategi dan ilmu untuk menang.</p><div class="battle-layout"><div><div class="arena"><div class="combatants"><div style="max-width:42%;"><div class="hp-card"><div><strong id="playerBattleName">Pelajar Hikmah</strong><div class="mini" id="playerBattleInfo">HP 100 / 100</div><div class="hp-bar"><div class="hp-fill" id="playerHpFill"></div></div></div></div><div class="sprite player">🧕</div></div><div style="max-width:42%;text-align:right;"><div class="hp-card"><div style="width:100%;"><strong id="enemyBattleName">Raja Kejahilan</strong><div class="mini" id="enemyBattleInfo">HP 100 / 100</div><div class="hp-bar"><div class="hp-fill" id="enemyHpFill" style="background:linear-gradient(90deg,var(--color-error),var(--color-warning));"></div></div></div></div><div class="sprite enemy">👹</div></div></div></div><div class="battle-actions"><button class="action-btn" data-battle="attack">Serangan Biasa</button><button class="menu-btn" data-battle="skill">Kemahiran Hikmah</button><button class="menu-btn" data-battle="item">Item Penyembuhan</button><button class="menu-btn" data-battle="run">Undur</button></div></div><div><div class="battle-log" id="battleLog">Boss muncul dari bayang-bayang kejahilan.</div></div></div></div></div>
-
-  <div class="modal-backdrop" id="mapModal"><div class="modal"><h3>Peta Dunia Ilmu</h3><p>Kawasan baharu dibuka apabila anda menamatkan misi pembelajaran dan mengalahkan boss wilayah.</p><div class="world-map-list" id="fullAreaList"></div><div class="pill-row" style="margin-top:1rem;justify-content:flex-end;"><button class="menu-btn" id="closeMapBtn">Tutup</button></div></div></div>
-
+  <div class="modal-backdrop" id="quizModal">
+    <div class="modal">
+      <h3 id="quizTitle">📖 Soalan Ilmu</h3>
+      <p id="quizContext">Jawab dengan betul untuk mendapat EXP dan Emas.</p>
+      <div class="reward" id="quizReward">🌟 Ganjaran: +20 EXP</div>
+      <div class="answer-grid" id="answerGrid" style="margin-top:1rem;"></div>
+      <div class="pill-row" style="margin-top:1rem;justify-content:flex-end;">
+        <button class="menu-btn" id="closeQuizBtn">Tutup</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop" id="battleModal">
+    <div class="modal">
+      <h3 id="battleTitle">⚔️ Pertempuran Ilmu</h3>
+      <p id="battleSubtitle">Gunakan strategi dan ilmu untuk menang.</p>
+      <div class="battle-layout">
+        <div>
+          <div class="arena">
+            <div class="combatants">
+              <div style="max-width:46%;">
+                <div class="hp-card"><div><strong id="playerBattleName">Pelajar Hikmah</strong><div class="mini" id="playerBattleInfo">HP 100 / 100</div><div class="hp-bar"><div class="hp-fill" id="playerHpFill"></div></div></div></div>
+                <div class="sprite player">🧕</div>
+              </div>
+              <div style="max-width:46%;text-align:right;">
+                <div class="hp-card"><div style="width:100%;"><strong id="enemyBattleName">Boss</strong><div class="mini" id="enemyBattleInfo">HP 100 / 100</div><div class="hp-bar"><div class="hp-fill" id="enemyHpFill" style="background:linear-gradient(90deg,#c0392b,#e67e22);"></div></div></div></div>
+                <div class="sprite enemy">👹</div>
+              </div>
+            </div>
+          </div>
+          <div class="battle-actions">
+            <button class="action-btn" data-battle="attack">🗡️ Serangan Biasa</button>
+            <button class="menu-btn" data-battle="skill">✨ Kemahiran Hikmah</button>
+            <button class="menu-btn" data-battle="item">🧪 Item Penyembuhan</button>
+            <button class="menu-btn" data-battle="run">🏃 Undur</button>
+          </div>
+        </div>
+        <div><div class="battle-log" id="battleLog">Boss muncul dari kegelapan...</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop" id="mapModal">
+    <div class="modal">
+      <h3>🗺️ Peta Dunia Ilmu</h3>
+      <p>Kawasan baharu dibuka apabila anda menamatkan quest dan mengalahkan boss.</p>
+      <div class="world-map-list" id="fullAreaList"></div>
+      <div class="pill-row" style="margin-top:1rem;justify-content:flex-end;">
+        <button class="menu-btn" id="closeMapBtn">Tutup</button>
+      </div>
+    </div>
+  </div>
   <script src="./data/game-data.js"></script>
   <script src="./script.js"></script>
 </body>
